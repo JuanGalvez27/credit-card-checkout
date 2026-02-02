@@ -22,8 +22,8 @@ export class CreateTransactionUseCase {
             new Date(),
             new Date(),
             dto.customerId,
-            dto.wompiTransactionId,
-            dto.wompiReference,
+            undefined, // wompiTransactionId
+            undefined, // wompiReference
         );
         console.log(transaction);
         console.log("Bingo!");

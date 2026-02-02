@@ -22,7 +22,7 @@ export class CreateProductUseCase {
             dto.currency,
             dto.description,
         );
-
+        console.log(product);
         const savedProduct = await this.productRepository.save(product);
         return right(savedProduct);
     }
