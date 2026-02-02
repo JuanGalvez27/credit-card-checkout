@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProductRepositoryPort } from '../../../../application/ports/out/product-repository.port';
-import { Product } from '../../../../domain/models/product';
+import { Product } from '../../../../../domain/entities/product';
 import { ProductTypeORM } from '../entities/product.typeorm';
 import { ProductMapper } from '../mappers/product.mapper';
 

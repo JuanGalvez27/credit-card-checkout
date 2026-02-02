@@ -1,10 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Either, right } from 'fp-ts/lib/Either';
-import { CreateProductDto } from '../../dto/product.dto';
-import type { ProductRepositoryPort } from '../../ports/out/product-repository.port';
-import { Product } from '../../../domain/models/product';
-import { DomainError } from '../../../domain/errors/domain.error';
+import { CreateProductDto } from '../../../src/application/dto/product.dto';
+import type { ProductRepositoryPort } from '../../../src/application/ports/out/product-repository.port';
+import { DomainError } from '../../errors/domain.error';
 import { randomUUID } from 'crypto';
+import { Product } from 'domain/entities/product';
+
 
 @Injectable()
 export class CreateProductUseCase {
@@ -21,8 +22,9 @@ export class CreateProductUseCase {
             dto.currency,
             dto.description,
         );
-
+        console.log(product);
         const savedProduct = await this.productRepository.save(product);
         return right(savedProduct);
     }
+
 }
