@@ -5,5 +5,6 @@ export class Product {
         public readonly price: number,
         public readonly currency: string,
         public readonly description: string,
+        public readonly stock: number,
     ) { }
 }

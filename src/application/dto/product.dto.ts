@@ -21,6 +21,11 @@ export class CreateProductDto {
     @IsString()
     @IsNotEmpty()
     description: string;
+
+    @ApiProperty({ description: 'Stock available', example: 10 })
+    @IsNumber()
+    @IsPositive()
+    stock: number;
 }
 
 export class UpdateProductDto {

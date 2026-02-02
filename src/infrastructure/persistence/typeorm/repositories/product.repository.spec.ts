@@ -14,6 +14,7 @@ describe('TypeOrmProductRepository', () => {
         price: 100,
         currency: 'USD',
         description: 'Desc',
+        stock: 10,
     } as ProductTypeORM;
 
     beforeEach(async () => {
@@ -56,7 +57,7 @@ describe('TypeOrmProductRepository', () => {
     });
 
     it('save should return saved product', async () => {
-        const product = { id: '1', name: 'Test', price: 100, currency: 'USD', description: 'Desc' };
+        const product = { id: '1', name: 'Test', price: 100, currency: 'USD', description: 'Desc', stock: 10 };
         jest.spyOn(typeOrmRepo, 'save').mockResolvedValue(mockEntity);
         // @ts-ignore
         const result = await repository.save(product);

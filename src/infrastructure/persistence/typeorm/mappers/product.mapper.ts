@@ -9,6 +9,7 @@ export class ProductMapper {
             Number(entity.price), // Postgres returns decimal as string
             entity.currency,
             entity.description,
+            entity.stock,
         );
     }
 
@@ -19,6 +20,7 @@ export class ProductMapper {
         entity.price = domain.price;
         entity.currency = domain.currency;
         entity.description = domain.description;
+        entity.stock = domain.stock;
         return entity;
     }
 }
