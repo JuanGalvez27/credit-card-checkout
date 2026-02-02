@@ -4,7 +4,7 @@ import { CreateProductDto } from '../../../src/application/dto/product.dto';
 import type { ProductRepositoryPort } from '../../../src/application/ports/out/product-repository.port';
 import { DomainError } from '../../errors/domain.error';
 import { randomUUID } from 'crypto';
-import { Product } from 'domain/entities/product';
+import { Product } from '../../entities/product';
 
 
 @Injectable()
@@ -21,6 +21,7 @@ export class CreateProductUseCase {
             dto.price,
             dto.currency,
             dto.description,
+            dto.stock,
         );
         console.log(product);
         const savedProduct = await this.productRepository.save(product);

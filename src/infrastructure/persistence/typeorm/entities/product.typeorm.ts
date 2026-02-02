@@ -16,4 +16,7 @@ export class ProductTypeORM {
 
     @Column()
     description: string;
+
+    @Column('int', { default: 0 })
+    stock: number;
 }
