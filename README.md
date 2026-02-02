@@ -44,17 +44,20 @@ The application automatically seeds 3 dummy products on startup if the database 
 
 ### API Endpoints
 
-#### POST /checkout
-Process a payment for a product.
+#### Checkout
 
-**Body:**
-```json
-{
-  "productId": "uuid-of-product",
-  "creditCardToken": "tok_visa",
-  "currency": "USD"
-}
-```
+-   `POST /checkout`: Process a product checkout.
+    -   Body: `{ "productId": "uuid", "creditCard": "1234567890123456" }`
+
+### Products
+
+-   `POST /products`: Create a new product.
+    -   Body: `{ "name": "string", "price": number, "currency": "string", "description": "string" }`
+-   `GET /products`: Retrieve all products.
+-   `GET /products/:id`: Retrieve a single product by ID.
+-   `PUT /products/:id`: Update a product by ID.
+    -   Body: `{ "name"?: "string", "price"?: number, "currency"?: "string", "description"?: "string" }`
+-   `DELETE /products/:id`: Delete a product by ID.
 
 **Responses:**
 - `201 Created`: Payment successful.
