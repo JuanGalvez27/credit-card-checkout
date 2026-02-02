@@ -39,7 +39,18 @@ export class WompiAdapter implements PaymentGatewayPort {
     }
 
     async createTransaction(input: CreateTransactionInput): Promise<TransactionResult> {
-        const integritySecret = this.configService.get<string>('INTEGRITY_APY_KEY') || '';
+        let integritySecret = this.configService.get<string>('INTEGRITY_API_KEY');
+        if (!integritySecret) {
+            // Fallback to the typo version just in case
+            integritySecret = this.configService.get<string>('INTEGRITY_APY_KEY');
+        }
+
+        integritySecret = (integritySecret || '').trim();
+
+        if (!integritySecret) {
+            console.warn('WARNING: INTEGRITY_API_KEY is not configured! Wompi signature will be invalid.');
+        }
+
         const signature = await WompiSignatureUtil.calculateSignature(
             input.reference,
             input.amount_in_cents,

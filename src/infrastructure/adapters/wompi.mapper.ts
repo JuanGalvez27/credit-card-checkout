@@ -20,7 +20,7 @@ import {
 export class WompiMapper {
     static toWompiRequest(input: CreateCardTokenInput): WompiTokenizeCardRequest {
         return {
-            number: input.number,
+            number: input.number.replace(/\s+/g, ''),
             cvc: input.cvc,
             exp_month: input.expMonth,
             exp_year: input.expYear,

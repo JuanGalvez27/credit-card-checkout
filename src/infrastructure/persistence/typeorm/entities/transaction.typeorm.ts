@@ -32,7 +32,7 @@ export class TransactionTypeORM {
     @Column('decimal', { precision: 15, scale: 2 })
     deliveryFee: number;
 
-    @Column('uuid', { nullable: true })
+    @Column({ nullable: true })
     customerId?: string;
 
     @Column({ nullable: true })
