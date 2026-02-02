@@ -1,9 +1,9 @@
-import type { Product } from '../../../domain/models/product';
+import { Product } from '../../../../domain/entities/product';
 
-export interface ProductRepositoryPort {
-    findAll(): Promise<Product[]>;
-    findById(id: string): Promise<Product | null>;
-    save(product: Product): Promise<Product>;
-    update(id: string, product: Partial<Product>): Promise<Product | null>;
-    delete(id: string): Promise<boolean>;
+export abstract class ProductRepositoryPort {
+    abstract findAll(): Promise<Product[]>;
+    abstract findById(id: string): Promise<Product | null>;
+    abstract save(product: Product): Promise<Product>;
+    abstract update(id: string, product: Partial<Product>): Promise<Product | null>;
+    abstract delete(id: string): Promise<boolean>;
 }

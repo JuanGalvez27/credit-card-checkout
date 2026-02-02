@@ -1,6 +1,6 @@
 import { ProductMapper } from './product.mapper';
 import { ProductTypeORM } from '../entities/product.typeorm';
-import { Product } from '../../../../domain/models/product';
+import { Product } from '../../../../../domain/entities/product';
 
 describe('ProductMapper', () => {
     it('should map from entity to domain', () => {
