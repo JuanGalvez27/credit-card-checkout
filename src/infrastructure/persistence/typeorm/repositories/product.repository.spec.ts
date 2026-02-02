@@ -25,6 +25,9 @@ describe('TypeOrmProductRepository', () => {
                     useValue: {
                         find: jest.fn().mockResolvedValue([mockEntity]),
                         findOne: jest.fn().mockResolvedValue(mockEntity),
+                        save: jest.fn(),
+                        update: jest.fn(),
+                        delete: jest.fn(),
                     },
                 },
             ],
@@ -50,5 +53,27 @@ describe('TypeOrmProductRepository', () => {
         jest.spyOn(typeOrmRepo, 'findOne').mockResolvedValue(null);
         const result = await repository.findById('2');
         expect(result).toBeNull();
+    });
+
+    it('save should return saved product', async () => {
+        const product = { id: '1', name: 'Test', price: 100, currency: 'USD', description: 'Desc' };
+        jest.spyOn(typeOrmRepo, 'save').mockResolvedValue(mockEntity);
+        // @ts-ignore
+        const result = await repository.save(product);
+        expect(result.id).toBe('1');
+    });
+
+    it('update should return updated product', async () => {
+        jest.spyOn(typeOrmRepo, 'findOne').mockResolvedValue(mockEntity);
+        jest.spyOn(typeOrmRepo, 'update').mockResolvedValue({ affected: 1 } as any);
+
+        const result = await repository.update('1', { name: 'Updated' });
+        expect(result?.id).toBe('1');
+    });
+
+    it('delete should return true if found', async () => {
+        jest.spyOn(typeOrmRepo, 'delete').mockResolvedValue({ affected: 1 } as any);
+        const result = await repository.delete('1');
+        expect(result).toBe(true);
     });
 });

@@ -7,6 +7,7 @@ import { TypeOrmConfigService } from './infrastructure/persistence/typeorm/typeo
 import { ProductTypeORM } from './infrastructure/persistence/typeorm/entities/product.typeorm';
 import { SeedingService } from './seeding.service';
 import { CheckoutModule } from './checkout.module';
+import { ProductModule } from './product.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { CheckoutModule } from './checkout.module';
     }),
     TypeOrmModule.forFeature([ProductTypeORM]),
     CheckoutModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService, SeedingService, TypeOrmConfigService],
