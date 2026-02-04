@@ -1,0 +1,517 @@
+{
+  "info": {
+    "_postman_id": "c235e4ed-cfce-4bf7-a6fc-2fe58a1af21b",
+    "name": "Credit Card Checkout",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28017359",
+    "_collection_link": "https://go.postman.co/collection/28017359-c235e4ed-cfce-4bf7-a6fc-2fe58a1af21b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localBaseURL}}/products",
+              "host": [
+                "{{localBaseURL}}"
+              ],
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Camiseta\",\r\n    \"price\": \"200000\",\r\n    \"currency\": \"COP\",\r\n    \"description\": \"Camiseta estampada\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localBaseURL}}/products",
+              "host": [
+                "{{localBaseURL}}"
+              ],
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Wompi API",
+      "item": [
+        {
+          "name": "Tokeniza una tarjeta",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{auth_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"number\": \"4242424242424242\", // Número de la tarjeta\r\n  \"cvc\": \"123\", // Código de seguridad de la tarjeta (3 o 4 dígitos según corresponda)\r\n  \"exp_month\": \"08\", // Mes de expiración (string de 2 dígitos)\r\n  \"exp_year\": \"28\", // Año expresado current 2 dígitos\r\n  \"card_holder\": \"José Pérez\" // Nombre del tarjetahabiente\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{sandboxWompiApiUrlUAT}}/tokens/cards",
+              "host": [
+                "{{sandboxWompiApiUrlUAT}}"
+              ],
+              "path": [
+                "tokens",
+                "cards"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Tokeniza una tarjeta",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"number\": \"4242424242424242\", // Número de la tarjeta\r\n  \"cvc\": \"123\", // Código de seguridad de la tarjeta (3 o 4 dígitos según corresponda)\r\n  \"exp_month\": \"08\", // Mes de expiración (string de 2 dígitos)\r\n  \"exp_year\": \"28\", // Año expresado current 2 dígitos\r\n  \"card_holder\": \"José Pérez\" // Nombre del tarjetahabiente\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{sandboxWompiApiUrlUAT}}/tokens/cards",
+                  "host": [
+                    "{{sandboxWompiApiUrlUAT}}"
+                  ],
+                  "path": [
+                    "tokens",
+                    "cards"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "377"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 02 Feb 2026 04:21:21 GMT"
+                },
+                {
+                  "key": "X-Amzn-Trace-Id",
+                  "value": "Root=1-69802640-21ec2a3540a732613606402b;Sampled=1;Lineage=1:fb43d070:0"
+                },
+                {
+                  "key": "x-amzn-RequestId",
+                  "value": "8d7bdecb-1d5a-4761-aa2b-d02fb61e5aa4"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "YIrqGH-0oAMEA4Q="
+                },
+                {
+                  "key": "X-Cache",
+                  "value": "Miss from cloudfront"
+                },
+                {
+                  "key": "Via",
+                  "value": "1.1 0c0ac2a6e744e0b27198122673939fb8.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "X-Amz-Cf-Pop",
+                  "value": "MIA3-P5"
+                },
+                {
+                  "key": "X-Amz-Cf-Id",
+                  "value": "zuOiJq9k31mbki-gwWJwmg9jh-aFHtC7-tR9I-nOHhIqUHv0Dl1LhQ=="
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"CREATED\",\n    \"data\": {\n        \"id\": \"tok_stagtest_5113_bf9cD2Ac77bfcD60De5Bd09b83e200cB\",\n        \"created_at\": \"2026-02-02T04:21:21.592+00:00\",\n        \"brand\": \"VISA\",\n        \"name\": \"VISA-4242\",\n        \"last_four\": \"4242\",\n        \"bin\": \"424242\",\n        \"exp_year\": \"28\",\n        \"exp_month\": \"08\",\n        \"card_holder\": \"José Pérez\",\n        \"created_with_cvc\": true,\n        \"expires_at\": \"2026-08-01T04:21:20.000Z\",\n        \"validity_ends_at\": \"2026-02-04T04:21:21.592+00:00\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "OBtener tokens aceptación",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{auth_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{sandboxWompiApiUrlUAT}}/merchants/pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7",
+              "host": [
+                "{{sandboxWompiApiUrlUAT}}"
+              ],
+              "path": [
+                "merchants",
+                "pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Aceptance Token ok",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{auth_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{sandboxWompiApiUrlUAT}}/merchants/pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7",
+                  "host": [
+                    "{{sandboxWompiApiUrlUAT}}"
+                  ],
+                  "path": [
+                    "merchants",
+                    "pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 02 Feb 2026 04:36:40 GMT"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "vary",
+                  "value": "accept-encoding"
+                },
+                {
+                  "key": "apigw-requestid",
+                  "value": "YIt55ihDIAMEPfA="
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Cache",
+                  "value": "Miss from cloudfront"
+                },
+                {
+                  "key": "Via",
+                  "value": "1.1 55a2e492c74577abf8547dc740add63e.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "X-Amz-Cf-Pop",
+                  "value": "MIA3-P5"
+                },
+                {
+                  "key": "X-Amz-Cf-Id",
+                  "value": "nHpUQUQjdriRuCo2ggpKFch3pWBgeTKAqhfTVjSow0eie7MITe8tjQ=="
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": {\n        \"id\": 5113,\n        \"name\": \"Alejandra Pruebas Sandbox UAT\",\n        \"email\": \"pruebasensandbox@yopmail.com\",\n        \"contact_name\": \"Alejandra Pruebas Sandbox UAT\",\n        \"phone_number\": \"+573000000000\",\n        \"active\": true,\n        \"logo_url\": null,\n        \"legal_name\": \"Alejandra Pruebas Sandbox UAT\",\n        \"legal_id_type\": \"CC\",\n        \"legal_id\": \"1069879849\",\n        \"public_key\": \"pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7\",\n        \"accepted_currencies\": [\n            \"COP\"\n        ],\n        \"validated_legal_id\": \"1069879849\",\n        \"fraud_javascript_key\": null,\n        \"fraud_groups\": [],\n        \"accepted_payment_methods\": [\n            \"NEQUI\",\n            \"PSE\",\n            \"BANCOLOMBIA_TRANSFER\",\n            \"CARD\",\n            \"BANCOLOMBIA_COLLECT\",\n            \"BANCOLOMBIA_QR\",\n            \"DAVIPLATA\",\n            \"BANCOLOMBIA_BNPL\",\n            \"SU_PLUS\",\n            \"CARD_POS\"\n        ],\n        \"payment_methods\": [\n            {\n                \"name\": \"BANCOLOMBIA_BNPL\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"BANCOLOMBIA_BNPL_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"BANCOLOMBIA_COLLECT\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"BANCOLOMBIA_COLLECT_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"BANCOLOMBIA_QR\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"BANCOLOMBIA_QR_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"BANCOLOMBIA_TRANSFER\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"BANCOLOMBIA_TRANSFER_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"CARD\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"CARD_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"CARD_POS\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"RBM_POS_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"DAVIPLATA\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"DAVIPLATA_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"NEQUI\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"NEQUI_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"PSE\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"PSE_SANDBOX\"\n                    }\n                ]\n            },\n            {\n                \"name\": \"SU_PLUS\",\n                \"payment_processors\": [\n                    {\n                        \"name\": \"SU_PLUS_SANDBOX\"\n                    }\n                ]\n            }\n        ],\n        \"presigned_acceptance\": {\n            \"acceptance_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NTA3LCJwZXJtYWxpbmsiOiJodHRwczovL3dvbXBpLmNvbS9hc3NldHMvZG93bmxvYWRibGUvcmVnbGFtZW50by1Vc3Vhcmlvcy1Db2xvbWJpYS5wZGYiLCJmaWxlX2hhc2giOiJkYzJkNGUzMDVlNGQzNmFhYjhjYzU3N2I1YTY5Nzg1MSIsImppdCI6IjE3NzAwMDcwMDAtMjE0OTIiLCJlbWFpbCI6IiIsImV4cCI6MTc3MDAxMDYwMH0.Fq7zVpLXChjq9h8pxPN6lRPPITfLPNgbpmjI9yk96Fo\",\n            \"permalink\": \"https://wompi.com/assets/downloadble/reglamento-Usuarios-Colombia.pdf\",\n            \"type\": \"END_USER_POLICY\"\n        },\n        \"presigned_personal_data_auth\": {\n            \"acceptance_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NDc0LCJwZXJtYWxpbmsiOiJodHRwczovL3dvbXBpLmNvbS9hc3NldHMvZG93bmxvYWRibGUvYXV0b3JpemFjaW9uLXRyYXRhbWllbnRvLWRhdG9zLXBlcnNvbmFsZXMucGRmIiwiZmlsZV9oYXNoIjoiNTE2ODYzZjA3NzZlZWY3NjBkNGI5OWFiMWJlZjRjNzgiLCJqaXQiOiIxNzcwMDA3MDAwLTYwNTkzIiwiZW1haWwiOiIifQ.hfUTqxyHf33YAhrNhd78Eqb6zaSosRHHyognsxGElS8\",\n            \"permalink\": \"https://wompi.com/assets/downloadble/autorizacion-tratamiento-datos-personales.pdf\",\n            \"type\": \"PERSONAL_DATA_AUTH\"\n        },\n        \"click_to_pay_dpa_id\": null,\n        \"mcc\": null,\n        \"acquirer_id\": null\n    },\n    \"meta\": {}\n}"
+            }
+          ]
+        },
+        {
+          "name": "Crear fuente pago",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{auth_token_priv}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"type\": \"CARD\",\r\n  \"token\": \"tok_stagtest_5113_b3274ab393a85B8d7552004561b1613b\",\r\n  \"customer_email\": \"pruebasensandbox@yopmail.com\",\r\n  \"acceptance_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NTA3LCJwZXJtYWxpbmsiOiJodHRwczovL3dvbXBpLmNvbS9hc3NldHMvZG93bmxvYWRibGUvcmVnbGFtZW50by1Vc3Vhcmlvcy1Db2xvbWJpYS5wZGYiLCJmaWxlX2hhc2giOiJkYzJkNGUzMDVlNGQzNmFhYjhjYzU3N2I1YTY5Nzg1MSIsImppdCI6IjE3NzAwMDcwMDAtMjE0OTIiLCJlbWFpbCI6IiIsImV4cCI6MTc3MDAxMDYwMH0.Fq7zVpLXChjq9h8pxPN6lRPPITfLPNgbpmjI9yk96Fo\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{sandboxWompiApiUrlUAT}}/payment_sources",
+              "host": [
+                "{{sandboxWompiApiUrlUAT}}"
+              ],
+              "path": [
+                "payment_sources"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear transacción",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{auth_token_priv}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"amount_in_cents\": 4990000, // Monto current centavos\r\n  \"currency\": \"COP\", // Moneda\r\n  \"customer_email\": \"example@gmail.com\", // Email del usuario\r\n  \"payment_method\": {\r\n    \"installments\": 2 // Número de cuotas si la fuente de pago representa una tarjeta de lo contrario el campo payment_method puede ser ignorado.\r\n  },\r\n  \"reference\": \"sJK4489dDjkd390ds0383\", // Referencia única de pago\r\n  \"payment_source_id\": 29481, // ID de la fuente de pago\r\n  \"signature\": \"2cabd8246ccb573db9cde1ca0707f3747f61997f6c1bf0c4cacaf898529d7a1c\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{sandboxWompiApiUrlUAT}}/transactions",
+              "host": [
+                "{{sandboxWompiApiUrlUAT}}"
+              ],
+              "path": [
+                "transactions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verificar transaccion",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{auth_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{sandboxWompiApiUrlUAT}}/transactions/15113-1770008696-21386",
+              "host": [
+                "{{sandboxWompiApiUrlUAT}}"
+              ],
+              "path": [
+                "transactions",
+                "15113-1770008696-21386"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "Create Transaction",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": \"1d681f16-5926-4119-988c-f22fb9284599\",\r\n  \"amount\": 4990000,\r\n  \"baseFee\": 0,\r\n  \"deliveryFee\": 0,\r\n  \"customerEmail\": \"example@gmail.com\",\r\n  \"cardNumber\": \"4242424242424242\",\r\n  \"cardCvc\": \"123\",\r\n  \"cardExpMonth\": \"08\",\r\n  \"cardExpYear\": \"28\",\r\n  \"cardHolder\": \"José Pérez\",\r\n  \"installments\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localBaseURL}}/transactions",
+              "host": [
+                "{{localBaseURL}}"
+              ],
+              "path": [
+                "transactions"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "localBaseURL",
+      "value": ""
+    },
+    {
+      "key": "sandboxWompiApiUrl",
+      "value": ""
+    },
+    {
+      "key": "sandboxWompiApiUrlUAT",
+      "value": ""
+    },
+    {
+      "key": "auth_token",
+      "value": ""
+    },
+    {
+      "key": "auth_token_priv",
+      "value": "Bearer prv_stagtest_5i0ZGIGiFcDQifYsXxvsny7Y37tKqFWg"
+    }
+  ]
+}
