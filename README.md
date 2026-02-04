@@ -49,6 +49,11 @@ The application automatically seeds 3 dummy products on startup if the database 
 -   `POST /checkout`: Process a product checkout.
     -   Body: `{ "productId": "uuid", "creditCard": "1234567890123456" }`
 
+### API Documentation (Postman)
+
+A Postman collection is included in the repository for easy testing of the API endpoints.
+- [Download Postman Collection](./Credit%20Card%20Checkout.postman_collection.json)
+
 ### Products
 
 -   `POST /products`: Create a new product.
